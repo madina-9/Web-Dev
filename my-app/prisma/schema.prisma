@@ -8,11 +8,12 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
 }
 
 model Post {
-  id      String   @id @default(cuid())
-  name    String
-  release_date String
+  id                 String   @id @default(cuid())
+  name               String
+  release_year       Int
+  watched_flag       Boolean
+  createdAt          DateTime  @default(now()) @db.Timestamptz(3)
 }
